@@ -1,3 +1,4 @@
+import faker from 'faker';
 import db from '../db/db';
 import C from './constants';
 import history from '../history';
@@ -31,7 +32,9 @@ export const fetchEmployee = (id) => async dispatch => {
 };
 
 export const createEmployee = (formValues) => async dispatch => {
-	const response = await db.post('/employees', { ...formValues });
+	let avatar = faker.image.avatar();
+	console.log(avatar)
+	const response = await db.post('/employees', { ...formValues, avatar: avatar });
 	console.log('respnse',response)
 	history.push('/');
 
