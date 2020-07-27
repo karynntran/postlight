@@ -1,7 +1,17 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchEmployee } from '../actions';
+
+const renderAdmin = (employee) => {
+	return (
+		<div>
+			<Link to={`/employees/${employee.id}/edit`}>Edit</Link>
+			<Link to={`/employees/${employee.id}/delete`}>Delete</Link>
+		</div>
+	)
+}
 
 const EmployeeShow = ({fetchEmployee, employee, match}) => {
 	useEffect(() => {
@@ -15,7 +25,7 @@ const EmployeeShow = ({fetchEmployee, employee, match}) => {
 				<div>{employee.name}</div>
 				<div>{employee.position}</div>
 				<div>{employee.email}</div>
-
+				{ renderAdmin(employee) }
 			</div>
 		)
 	} else {
@@ -27,9 +37,9 @@ const EmployeeShow = ({fetchEmployee, employee, match}) => {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
 	return {
-		employee: state.employees
+		employee: state.employees[ownProps.match.params.id]
 	}
 }
 
