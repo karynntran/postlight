@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import EmployeesList from './EmployeesList';
-
+import '../styles/Main.scss';
 
 const Main = () => {
 	return (
-		<div>
+		<div id="Main">
+			<Link to="/employees/new"><button>Add new employee</button></Link>
 			<EmployeesList/>
-			<Link to="/employees/new">Add new employee</Link>
 		</div>
 	)
 }

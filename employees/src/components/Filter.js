@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/Filter.scss';
 
 const FilterEmployees = ({updateFilter}) => {
 	const [query, setQuery] = useState('');
@@ -9,7 +10,7 @@ const FilterEmployees = ({updateFilter}) => {
 	};
 
 	return (
-		<section>
+		<section id="Filter">
 			<form>
 			  <label>
 			    Search for Employee:

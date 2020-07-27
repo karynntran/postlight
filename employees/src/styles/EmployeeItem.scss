@@ -1,0 +1,16 @@
+@import '_shared';
+@import '_variables';
+
+
+.EmployeeItem {
+	flex: 1;
+	border-radius: .3rem;
+	height: 10rem;
+}
+
+.EmployeeItem-card {
+	border: .1rem solid $lightGray;
+	height: 90%;
+	width: 10rem;
+	margin: 0 auto;
+}

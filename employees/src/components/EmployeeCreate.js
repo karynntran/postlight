@@ -10,7 +10,7 @@ class EmployeeCreate extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div id="EmployeeCreate">
 				<h3>Add an employee</h3>
 				<EmployeeForm onSubmit={this.onSubmit}/>
 			</div>

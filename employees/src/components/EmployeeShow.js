@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { fetchEmployee } from '../actions';
+import '../styles/EmployeeShow.scss';
 
 const renderAdmin = (employee) => {
 	return (
 		<div>
-			<Link to={`/employees/${employee.id}/edit`}>Edit</Link>
-			<Link to={`/employees/${employee.id}/delete`}>Delete</Link>
+			<Link className="EmployeeShow_edit" to={`/employees/${employee.id}/edit`}><button>Edit</button></Link>
+			<Link className="EmployeeShow_delete" to={`/employees/${employee.id}/delete`}><button>Delete</button></Link>
 		</div>
 	)
 }
@@ -20,11 +21,11 @@ const EmployeeShow = ({fetchEmployee, employee, match}) => {
 
 	if (employee) {
 		return (
-			<div>
-				<div>EmployeeShow</div>
-				<div>{employee.name}</div>
-				<div>{employee.position}</div>
-				<div>{employee.email}</div>
+			<div className="EmployeeShow">
+				<img src=""/>
+				<div className="EmployeeShow-name">{employee.name}</div>
+				<div className="EmployeeShow-position">{employee.position}</div>
+				<div className="EmployeeShow-email">{employee.email}</div>
 				{ renderAdmin(employee) }
 			</div>
 		)

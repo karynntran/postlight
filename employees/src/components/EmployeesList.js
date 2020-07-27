@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-
 import { fetchEmployees } from '../actions';
-
 import Filter from './Filter';
-
 import EmployeeItem from './EmployeeItem';
+import '../styles/EmployeesList.scss';
 
 
 const renderEmployees = (employees, query = '') => {
@@ -26,7 +24,9 @@ const EmployeesList = ({ fetchEmployees, employees }) => {
 	const [query, setQuery] = useState('')
 
 	useEffect(() => {
-		fetchEmployees();
+		if (employees.length == 0) {
+			fetchEmployees();
+		}
 	}, [])
 
 	const updateFilter = (query) => {
@@ -41,9 +41,9 @@ const EmployeesList = ({ fetchEmployees, employees }) => {
 		<div>
 			<Filter updateFilter={updateFilter}/>
 
-			<div className="EmployeesList">
+			<section id="EmployeesList">
 			  	{renderEmployees(employees, query)}
-			</div>
+			</section>
 		</div>
 	);
 

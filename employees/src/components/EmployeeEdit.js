@@ -17,7 +17,7 @@ class EmployeeEdit extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div id="EmployeeEdit">
 				<h3>Edit Employee</h3>
 				<EmployeeForm onSubmit={this.onSubmit} initialValues={_.pick(this.props.employee, 'name', 'email', 'position')} />
 			</div>

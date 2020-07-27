@@ -4,6 +4,7 @@ import {
 	reduxForm
 } from 'redux-form';
 import history from '../history';
+import '../styles/EmployeeForm.scss';
 
 
 class EmployeeForm extends React.Component {
@@ -35,10 +36,10 @@ class EmployeeForm extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.props.handleSubmit(this.onSubmission)}>
-				<Field name="name" component={this.renderInput} label="name" />
-				<Field name="email" component={this.renderInput} label="email" />
-				<Field name="position" component={this.renderInput} label="position" />
+			<form className="EmployeeForm" onSubmit={this.props.handleSubmit(this.onSubmission)}>
+				<Field name="name" component={this.renderInput} label="Name" />
+				<Field name="email" component={this.renderInput} label="Email" />
+				<Field name="position" component={this.renderInput} label="Position" />
 				<button>Submit</button>
 			</form>
 		)

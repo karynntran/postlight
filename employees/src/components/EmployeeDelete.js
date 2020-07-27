@@ -15,7 +15,7 @@ class EmployeeDelete extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div id="EmployeeDelete">
 				<h1>{`Delete "${this.props.employee.name}"?`}</h1>
 				<div>
 					<button onClick={() => this.onDeleteClick()}>Delete</button>
