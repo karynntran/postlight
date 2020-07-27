@@ -2,35 +2,31 @@ import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { fetchEmployee, editEmployee } from '../actions';
+import { editEmployee } from '../actions';
 import EmployeeForm from './EmployeeForm';
+import history from '../history';
 
-class EmployeeEdit extends React.Component {
-	componentDidMount() {
-		this.props.fetchEmployee(this.props.match.params.id)
+
+const EmployeeEdit = ({employee, editEmployee, dismissModal}) => {
+
+	const onSubmit = formValues => {
+		editEmployee(formValues, employee.id);
+		dismissModal(false);
+		history.push('/');
+
 	}
 
-	onSubmit = formValues => {
-		console.log(formValues)
-		this.props.editEmployee(formValues, this.props.match.params.id);
-	}
+	return (
+		<div id="EmployeeEdit">
+			<div className="close" onClick={() => dismissModal(false)}>&#xd7;</div>
+			<h3>Edit Employee</h3>
+			<EmployeeForm onSubmit={onSubmit} initialValues={_.pick(employee, 'name', 'email', 'position')} />
+		</div>
+	)
 
-	render() {
-		return (
-			<div id="EmployeeEdit">
-				<h3>Edit Employee</h3>
-				<EmployeeForm onSubmit={this.onSubmit} initialValues={_.pick(this.props.employee, 'name', 'email', 'position')} />
-			</div>
-		)
-	}
 }
 
 
-const mapStateToProps = (state, ownProps) => {
-	return {
-		employee: state.employees[ownProps.match.params.id]
-	}
-}
 
 
-export default connect(mapStateToProps, { fetchEmployee, editEmployee })(EmployeeEdit);
+export default connect(null, { editEmployee })(EmployeeEdit);

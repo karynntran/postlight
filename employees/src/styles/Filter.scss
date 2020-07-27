@@ -2,17 +2,13 @@
 @import '_variables';
 
 #Filter {
-	border: .1rem solid $lightGray;
 	padding: 1rem;
+	box-sizing: border-box;
 	width: 100%;
-	height: 2rem;
+	height: 5rem;
+
+	input {
+		margin-left: 2rem;
+	}
 }
 
-input {
-	width: 15rem;
-	height: 2rem;
-	text-transform: uppercase;
-	font-weight: 600;
-	letter-spacing: .1rem;
-	margin-left: 2rem;
-}

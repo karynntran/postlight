@@ -8,6 +8,7 @@ const EmployeeItem = ({employee}) => {
 			<div className="EmployeeItem-card">
 				<Link to={`/employees/${employee.id}`}>
 					<p className="EmployeeItem-name">{employee.name}</p>
+					<img className="EmployeeItem-img" src={employee.avatar} alt="avatar"/>
 				</Link>
 			</div>
 		</div>

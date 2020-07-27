@@ -2,20 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createEmployee } from '../actions';
 import EmployeeForm from './EmployeeForm';
+import history from '../history';
 
-class EmployeeCreate extends React.Component {
+const EmployeeCreate = ({createEmployee, dismissModal, onSubmit}) => {
 	onSubmit = (formValues) => {
-		this.props.createEmployee(formValues);
+		createEmployee(formValues);
+		dismissModal(false);
+		history.push('/');
 	}
 
-	render() {
-		return (
-			<div id="EmployeeCreate">
-				<h3>Add an employee</h3>
-				<EmployeeForm onSubmit={this.onSubmit}/>
-			</div>
-		)
-	}
+
+	return (
+		<div id="EmployeeCreate">
+			<div className="close" onClick={() => dismissModal(false)}>&#xd7;</div>
+			<h3>Add an employee</h3>
+			<EmployeeForm onSubmit={onSubmit}/>
+		</div>
+	)
+
 }
 
 

@@ -1,22 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
+
+import { Modal } from './Modal';
 
 import EmployeesList from './EmployeesList';
 import '../styles/Main.scss';
 
-const Main = () => {
+
+
+const Main = ({ fetchEmployees, employees}) => {
+	const [modalViewable, setModalViewable] = useState(false);
+	const [component, setComponent] = useState('');
+
+
+	const setComponentType = (componentType) => {
+		setComponent(componentType)
+		setModalViewable(true)
+	}
+
+	const renderModal = () => {
+		if (modalViewable) {
+			return <Modal dismissModal={dismissModal} component={component} />
+		}
+	}
+
+	const dismissModal = (modalVisible) => {
+		setModalViewable(false)
+		setComponent('')
+	}
+
 	return (
 		<div id="Main">
-			<Link to="/employees/new"><button>Add new employee</button></Link>
-			<EmployeesList/>
+			<button className="Main-addEmployee"onClick={() => setComponentType('create')} >Add new employee</button>
+			<EmployeesList setComponentType={setComponentType}/>
+			{renderModal()}
 		</div>
 	)
-}
-
-const mapStateToProps = (state) => {
-	return {
-		employees: Object.values(state.employees)
-	}
 }
 
 

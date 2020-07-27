@@ -6,6 +6,7 @@ html {
 
 body {
 	font-family: 'Quicksand', sans-serif;
+	box-sizing: border-box;
 }
 
 ul,
@@ -26,4 +27,21 @@ button {
 h3 {
 	text-transform: uppercase;
 	letter-spacing: .1rem;
+}
+
+input {
+	width: 15rem;
+	height: 2rem;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: .1rem;
+	margin-left: 2rem;
+}
+
+.close {
+	position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 3rem;
+    padding: 1rem;
 }
