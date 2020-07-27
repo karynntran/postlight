@@ -9,7 +9,6 @@ import EmployeeItem from './EmployeeItem';
 
 
 const renderEmployees = (employees, query = '') => {
-	console.log(query)
 	let filteredList = employees.filter(employee => {
 		if (query === '') {
 			return employees
@@ -30,20 +29,17 @@ const EmployeesList = ({ fetchEmployees, employees }) => {
 		fetchEmployees();
 	}, [])
 
-	const handleChange = e => {
-		setQuery(e.target.value);
+	const updateFilter = (query) => {
+		let filterTM;
+		clearTimeout(filterTM);
+		filterTM = setTimeout(() => {
+			setQuery(query)
+		}, 750)
 	}
 
 	return (
 		<div>
-			<section>
-				<form>
-				  <label>
-				    Search for Employee:
-				    <input type="text" name="filter" value={query} onChange={handleChange}/>
-				  </label>
-				</form>
-			</section>
+			<Filter updateFilter={updateFilter}/>
 
 			<div className="EmployeesList">
 			  	{renderEmployees(employees, query)}

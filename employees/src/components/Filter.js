@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-const FilterEmployees = ({updateQuery}) => {
+const FilterEmployees = ({updateFilter}) => {
 	const [query, setQuery] = useState('');
 
 	const handleChange = e => {
-		setQuery(e.target.value);
-		updateQuery(query)
+		updateFilter(e.target.value)
+		setQuery(e.target.value)
 	};
 
 	return (

@@ -33,9 +33,7 @@ export const fetchEmployee = (id) => async dispatch => {
 
 export const createEmployee = (formValues) => async dispatch => {
 	let avatar = faker.image.avatar();
-	console.log(avatar)
 	const response = await db.post('/employees', { ...formValues, avatar: avatar });
-	console.log('respnse',response)
 	history.push('/');
 
 	dispatch({

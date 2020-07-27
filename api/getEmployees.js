@@ -7,7 +7,7 @@ function getEmployees () {
     let firstName = faker.name.firstName()
     let lastName = faker.name.lastName()
     let job = faker.name.jobType()
-    let avatar = faker.image.avatar()
+    let avatar = faker.internet.avatar()
     data.employees.push({
       "id": id,
       "name": `${firstName} ${lastName}`,
