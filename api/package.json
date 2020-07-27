@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --watch db.json --port 8000"
+    "start": "node getEmployees.js && json-server --watch db.json --port 8000"
+
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "faker": "^4.1.0",
     "json-server": "^0.16.1"
   }
 }
