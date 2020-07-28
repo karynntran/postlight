@@ -35,4 +35,6 @@ $ `npm start`
 I would have loved to focus on:
   - Testing
   - Separating out reusable code into new functions / more cleanup
-  - Styling across devices
+  - Address performance issues (lazy loading images, pagination)
+  - UX (better design across devices, organizing data by position)
+
