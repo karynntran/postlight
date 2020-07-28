@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/Filter.scss';
 
 const FilterEmployees = ({updateFilter}) => {
-	const [query, setQuery] = useState('');
+	let [query, setQuery] = useState('');
 
 	const handleChange = e => {
 		updateFilter(e.target.value)

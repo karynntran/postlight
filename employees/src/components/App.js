@@ -8,7 +8,7 @@ import EmployeeCreate from './EmployeeCreate';
 import EmployeeEdit from './EmployeeEdit';
 import EmployeeDelete from './EmployeeDelete';
 
-import EmployeeShow from './EmployeeShow';
+// import EmployeeShow from './EmployeeShow';
 
 const App = () => {
     return (
@@ -18,7 +18,6 @@ const App = () => {
                 <Switch>
                     <Route path="/" exact component={Main} />
                     <Route path="/employees/new" exact component={EmployeeCreate} />
-                    <Route path="/employees/:id" exact component={EmployeeShow} />
                     <Route path="/employees/:id/edit" exact component={EmployeeEdit} />
                     <Route path="/employees/:id/delete" exact component={EmployeeDelete} />
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchEmployee, deleteEmployee } from '../actions';
+import { deleteEmployee } from '../actions';
 import history from '../history';
 
-const EmployeeDelete = ({employee, deleteEmployee, onDeleteClick}) => {
+const EmployeeDelete = ({employee, deleteEmployee, dismissModal}) => {
 
-	onDeleteClick = () => {
+	const onDeleteClick = () => {
 		deleteEmployee(employee.id)
-		history.push('/');
+		dismissModal(false)
 	}
 
 	return (
@@ -15,7 +15,7 @@ const EmployeeDelete = ({employee, deleteEmployee, onDeleteClick}) => {
 			<h1>{`Delete "${employee.name}"?`}</h1>
 			<div>
 				<button onClick={() => onDeleteClick()}>Delete</button>
-				<button onClick={() => history.push("/")}>Cancel</button>
+				<button onClick={() => dismissModal(false)}>Cancel</button>
 			</div>
 		</div>
 	)

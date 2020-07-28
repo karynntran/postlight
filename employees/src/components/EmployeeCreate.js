@@ -4,8 +4,8 @@ import { createEmployee } from '../actions';
 import EmployeeForm from './EmployeeForm';
 import history from '../history';
 
-const EmployeeCreate = ({createEmployee, dismissModal, onSubmit}) => {
-	onSubmit = (formValues) => {
+const EmployeeCreate = ({createEmployee, dismissModal}) => {
+	const handleSubmit = (formValues) => {
 		createEmployee(formValues);
 		dismissModal(false);
 		history.push('/');
@@ -16,7 +16,7 @@ const EmployeeCreate = ({createEmployee, dismissModal, onSubmit}) => {
 		<div id="EmployeeCreate">
 			<div className="close" onClick={() => dismissModal(false)}>&#xd7;</div>
 			<h3>Add an employee</h3>
-			<EmployeeForm onSubmit={onSubmit}/>
+			<EmployeeForm onSubmit={handleSubmit}/>
 		</div>
 	)
 

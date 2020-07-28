@@ -8,22 +8,12 @@ import EmployeeItem from './EmployeeItem';
 import '../styles/EmployeesList.scss';
 
 
-const renderEmployees = (employees, query = '') => {
-	let filteredList = employees.filter(employee => {
-		if (query === '') {
-			return employees
-		} else if (employee.name.toLowerCase().includes(query.toLowerCase())) {
-			return employee
-		}
-	})
-	return filteredList.map((employee, idx) => {
-		return <EmployeeItem key={`${idx}-item`} employee={employee}/>
-	})
-}
 
 
-const EmployeesList = ({ employees, fetchEmployees }) => {
-	const [query, setQuery] = useState('')
+const EmployeesList = ({ employees, fetchEmployees, setComponentType }) => {
+	let [query, setQuery] = useState('')
+	let [active, setActive] = useState('')
+
 
 	const memoizedCallback = useCallback(
 	  () => {
@@ -36,6 +26,19 @@ const EmployeesList = ({ employees, fetchEmployees }) => {
 		fetchEmployees();
 	}, [memoizedCallback])
 
+
+	const renderEmployees = (employees, query = '', setComponentType) => {
+		let filteredList = employees.filter(employee => {
+			if (query === '') {
+				return employees
+			} else if (employee.name.toLowerCase().includes(query.toLowerCase())) {
+				return employee
+			}
+		})
+		return filteredList.map((employee, idx) => {
+			return <EmployeeItem key={`${idx}-item`} setActive={setActive} active={active} employee={employee} setComponentType={setComponentType}/>
+		})
+	}
 
 	const updateFilter = (query) => {
 		let filterTM;

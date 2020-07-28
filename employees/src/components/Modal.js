@@ -4,6 +4,7 @@ import EmployeeCreate from './EmployeeCreate';
 import EmployeeEdit from './EmployeeEdit';
 import EmployeeDelete from './EmployeeDelete';
 
+
 import '../styles/Modal.scss';
 
 
@@ -24,8 +25,10 @@ const renderComponent = (component, dismissModal, employee) => {
 }
 
 export const Modal = ({component, dismissModal, employee}) => {
+	const windowPos = document.documentElement.scrollTop;
+
 	return ReactDOM.createPortal(
-		<div className="Modal">
+		<div className="Modal" onClick={() => dismissModal(false)} style={{'top': windowPos}} >
 			<div className="Modal-card" onClick={(e) => e.stopPropagation()}>
 				{renderComponent(component, dismissModal, employee)}
 			</div>

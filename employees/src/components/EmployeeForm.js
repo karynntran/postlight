@@ -3,7 +3,6 @@ import {
 	Field,
 	reduxForm
 } from 'redux-form';
-import history from '../history';
 import '../styles/EmployeeForm.scss';
 
 

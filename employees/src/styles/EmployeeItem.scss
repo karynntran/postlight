@@ -5,30 +5,29 @@
 .EmployeeItem {
 	flex: 1;
 	border-radius: .3rem;
-	height: 12rem;
+	height: auto;
+	width: calc(100% / 3);
 	position: relative;
-	a {
-		width: 100%;
-		height: 100%;
-		cursor: pointer;
-		position: absolute;
-		text-decoration: none;
-		color: black;
-		top: 0;
-		left: 0;
-		display: flex;
-		flex-direction: column;
-	}
+	cursor: pointer;
 }
 
 .EmployeeItem-card {
 	box-shadow: .1rem .1rem .3rem rgba(0,0,0,.5);
-	height: 90%;
-	width: 10rem;
+	height: 13rem;
+	width: 15rem;
 	margin: 0 auto;
 	padding: 1rem;
 	box-sizing: border-box;
 	position: relative;
+	transition: height .2s ease-in;
+	&.active {
+		height: 25rem;
+		transition: height .2s ease-in;
+		.EmployeeItem-details {
+			opacity: 1;
+			transition: opacity .2s ease-in .2s;
+		}
+	}
 }
 
 .EmployeeItem-name {
@@ -42,3 +41,9 @@
 	height: auto;
 	margin: 0 auto;
 }
+
+.EmployeeItem-details {
+	opacity: 0;
+	transition: opacity .1s ease-in;
+
+} 
