@@ -14,7 +14,10 @@ const EmployeeCreate = ({createEmployee, dismissModal}) => {
 
 	return (
 		<div id="EmployeeCreate">
-			<div className="close" onClick={() => dismissModal(false)}>&#xd7;</div>
+			<div 
+				className="close"
+				onClick={() => dismissModal(false)}>&#xd7;
+			</div>
 			<h3>Add an employee</h3>
 			<EmployeeForm onSubmit={handleSubmit}/>
 		</div>

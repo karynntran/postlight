@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Modal } from './Modal';
-
 import '../styles/EmployeeItem.scss';
 
 const EmployeeItem = ({employee, setActive, active}) => {

@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-
 import { fetchEmployees } from '../actions';
-
 import Filter from './Filter';
 import EmployeeItem from './EmployeeItem';
 import '../styles/EmployeesList.scss';
-
-
 
 
 const EmployeesList = ({ employees, fetchEmployees, setComponentType }) => {

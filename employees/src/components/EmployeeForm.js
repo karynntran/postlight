@@ -7,10 +7,9 @@ import '../styles/EmployeeForm.scss';
 
 class EmployeeForm extends React.Component {
 
-	renderInput = ({ input, label, meta }) => {
-		const className = `field ${meta.error && meta.touched ? 'error': ''}`;
+	renderInput = ({ input, label }) => {
 		return (
-			<div className={className}>
+			<div>
 				<label>{label}</label>
 				<input {...input} autoComplete="off"></input>
 			</div>

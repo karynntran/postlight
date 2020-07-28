@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteEmployee } from '../actions';
-import history from '../history';
 
 const EmployeeDelete = ({employee, deleteEmployee, dismissModal}) => {
 
