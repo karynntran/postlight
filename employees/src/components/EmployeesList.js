@@ -15,16 +15,9 @@ const EmployeesList = ({ employees, fetchEmployees, setComponentType }) => {
 	let [active, setActive] = useState('')
 
 
-	const memoizedCallback = useCallback(
-	  () => {
-	    fetchEmployees();
-	  },
-	  [fetchEmployees],
-	);
-
 	useEffect(() => {
 		fetchEmployees();
-	}, [memoizedCallback])
+	}, [fetchEmployees])
 
 
 	const renderEmployees = (employees, query = '', setComponentType) => {

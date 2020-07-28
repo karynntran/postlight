@@ -6,9 +6,36 @@
 	flex: 1;
 	border-radius: .3rem;
 	height: auto;
-	width: calc(100% / 3);
 	position: relative;
 	cursor: pointer;
+	&:nth-child(1n) {
+		.EmployeeItem-card {
+			&:after {
+				border-right:1rem solid $blue; 					
+			}
+		}
+	}
+	&:nth-child(2n) {
+		.EmployeeItem-card {
+			&:after {
+				border-right:1rem solid $pink; 					
+			}
+		}
+	}
+	&:nth-child(3n) {
+		.EmployeeItem-card {
+			&:after {
+				border-right:1rem solid $green; 					
+			}
+		}
+	}
+	&:nth-child(4n) {
+		.EmployeeItem-card {
+			&:after {
+				border-right:1rem solid $orange; 					
+			}
+		}
+	}
 }
 
 .EmployeeItem-card {
@@ -20,6 +47,8 @@
 	box-sizing: border-box;
 	position: relative;
 	transition: height .2s ease-in;
+	display: flex;
+	flex-direction: column;
 	&.active {
 		height: 25rem;
 		transition: height .2s ease-in;
@@ -28,10 +57,24 @@
 			transition: opacity .2s ease-in .2s;
 		}
 	}
+	&:after {
+		content: '';
+		position: absolute;
+		width: 0; 
+		height: 0; 
+		border-top: 1rem solid transparent;
+		border-bottom: 1rem solid transparent; 
+	    bottom: -.5rem;
+	    right: 0rem;
+	    transform: rotate(225deg);
+	}
 }
+
 
 .EmployeeItem-name {
 	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 600;
 }
 
 .EmployeeItem-img {
@@ -43,7 +86,14 @@
 }
 
 .EmployeeItem-details {
+	text-align: center;
 	opacity: 0;
 	transition: opacity .1s ease-in;
-
+	word-break: break-word;
 } 
+
+.EmployeeItem-position {
+	font-style: italic;
+	margin: .5rem auto;
+	font-weight: 600;
+}

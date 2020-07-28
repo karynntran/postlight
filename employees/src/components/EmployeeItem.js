@@ -49,8 +49,8 @@ const EmployeeItem = ({employee, setActive, active}) => {
 				<img className="EmployeeItem-img" src={employee.avatar} alt="avatar"/>
 
 				<div className="EmployeeItem-details">
-					<div>{employee.position}</div>
-					<div>{employee.email}</div>
+					<div className="EmployeeItem-position">{employee.position}</div>
+					<div className="EmployeeItem-email">{employee.email}</div>
 
 					{ renderAdmin(employee, setComponentType) }
 					{ renderModal() }

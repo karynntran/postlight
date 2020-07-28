@@ -1,4 +1,7 @@
 @import '_shared';
+@import '_variables';
+
+
 
 #Main {
 	width: 90%;
@@ -11,4 +14,9 @@
 .Main-addEmployee {
 	width: 20rem;
 	margin-bottom: 2rem;
+}
+
+h1 {
+	font-family: 'Abril Fatface', cursive;
+	color: $orange;
 }

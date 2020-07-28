@@ -29,6 +29,7 @@ const Main = ({ fetchEmployees, employees}) => {
 
 	return (
 		<div id="Main">
+		    <h1>Meet Our Team</h1>
 			<button className="Main-addEmployee"onClick={() => setComponentType('create')} >Add new employee</button>
 			<EmployeesList setComponentType={setComponentType}/>
 			{renderModal()}

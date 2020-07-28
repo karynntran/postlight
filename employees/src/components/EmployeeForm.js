@@ -5,7 +5,6 @@ import {
 } from 'redux-form';
 import '../styles/EmployeeForm.scss';
 
-
 class EmployeeForm extends React.Component {
 
 	renderInput = ({ input, label, meta }) => {
